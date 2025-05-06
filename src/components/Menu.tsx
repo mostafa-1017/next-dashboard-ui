@@ -112,3 +112,27 @@ const menuItems = [
     ],
   },
 ];
+
+const Menu = () => {
+  return (
+    <div className =''>
+      {menuItems.map((menu, index) => (
+        <div key={index} className="mb-4">
+          <h2 className="text-lg font-bold mb-2">{menu.title}</h2>
+          <ul className="space-y-2">
+            {menu.items.map((item, itemIndex) => (
+              <li key={itemIndex} className="flex items-center gap-2">
+                <img src={item.icon} alt={item.label} className="w-6 h-6" />
+                <a href={item.href} className="text-blue-600 hover:underline">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default Menu;
